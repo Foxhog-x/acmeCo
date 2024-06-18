@@ -1,40 +1,85 @@
 import styles from "./Profile.module.css";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
-import { useRef } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
+
 import { useForm, SubmitHandler } from "react-hook-form";
-export const Profilepage = () => {
-  type Inputs = {
-    firstName: string;
-    lastName: string;
-    email: string;
-    address: string;
-    image: File | null;
-  };
+interface FileDetails {
+  name: string;
+  size: number;
+}
+
+type Inputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  address: string;
+  image: File | null;
+};
+type IProps = {
+  setOpen: Dispatch<SetStateAction<boolean | object>>;
+};
+export const Profilepage = ({ setOpen }: IProps) => {
+  const [fileDetails, setFileDetails] = useState<FileDetails>();
+
   const {
     register,
     handleSubmit,
-    watch,
     setValue,
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const formData = new FormData();
+    formData.append("firstName", data.firstName);
+    formData.append("lastName", data.lastName);
+    formData.append("email", data.email);
+    formData.append("address", data.address);
+    if (data.image) {
+      formData.append("image", data.image);
+    }
     fetch("http://localhost:8000/profile", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        form_obj: data,
-      }),
-    });
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        setOpen((prev) => {
+          if (typeof prev !== "object" || prev === null) {
+            return prev;
+          }
+          return {
+            ...prev,
+            bool: true,
+            message: "successfully Saved",
+          };
+        });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+    console.log(data);
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null;
+    if (file) {
+      setFileDetails((prev) => {
+        return { ...prev, name: file?.name, size: file.size / (1024 * 1024) };
+      });
+    }
+    console.log(file);
     setValue("image", file);
   };
   const handleButtonClick = () => {
     const fileInput = document.getElementById("fileInput") as HTMLInputElement;
     fileInput.click();
   };
+
+  const formatToTwoDecimalPlaces = (num: number): number => {
+    const size = Math.floor(num * 100) / 100;
+    return size;
+  };
+
   return (
     <>
       <div className={styles.profile_container}>
@@ -65,6 +110,12 @@ export const Profilepage = () => {
               onChange={(e) => handleFileChange(e)}
             />
           </button>
+          <p style={{ display: "flex", gap: 14 }}>
+            <span>{fileDetails?.name}</span>
+            <span>
+              {fileDetails && formatToTwoDecimalPlaces(fileDetails?.size)}
+            </span>
+          </p>
         </div>
 
         <form
