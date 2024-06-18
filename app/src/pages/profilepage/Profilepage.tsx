@@ -1,5 +1,6 @@
+import { IconButton } from "@mui/material";
 import styles from "./Profile.module.css";
-
+import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 export const Profilepage = () => {
   return (
     <>
@@ -16,7 +17,10 @@ export const Profilepage = () => {
               borderRadius: "1rem",
             }}
           >
-            <span>logo</span> Add Profile Photo here
+            <IconButton>
+              <PhotoCameraIcon />
+            </IconButton>{" "}
+            Add Profile Photo here
           </button>
         </div>
 
