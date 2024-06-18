@@ -3,7 +3,6 @@ import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import { useRef } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 export const Profilepage = () => {
-  const fileInputRef = useRef<HTMLInputElement>(null);
   type Inputs = {
     firstName: string;
     lastName: string;
