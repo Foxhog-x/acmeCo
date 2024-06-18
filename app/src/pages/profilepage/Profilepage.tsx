@@ -1,5 +1,5 @@
 import styles from "./Profile.module.css";
-import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
+
 export const Profilepage = () => {
   return (
     <>
