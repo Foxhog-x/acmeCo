@@ -79,7 +79,7 @@ gap: 8px;
     display: flex;
     justify-content: flex-end;
     gap: 2rem;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 input[type="text"], textarea {
     font-size: 20px;
