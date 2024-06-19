@@ -24,7 +24,10 @@ export const Header = () => {
             <li>Guest</li>
             <li>Events</li>
             <li>Services</li>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar
+              alt="Remy Sharp"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            />
           </div>
           <div className={styles.hamburger} onClick={toggleMenu}>
             <div></div>
