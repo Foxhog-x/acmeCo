@@ -1,6 +1,6 @@
 import styles from "./Profile.module.css";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 interface FileDetails {

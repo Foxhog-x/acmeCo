@@ -1,7 +1,6 @@
 import * as React from "react";
 import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
-import { Dispatch, SetStateAction } from "react";
 
 import CloseIcon from "@mui/icons-material/Close";
 interface OpenState {
@@ -22,7 +21,15 @@ export default function SimpleSnackbar({ open, setOpen }: IProps) {
       return;
     }
 
-    setOpen(false);
+    setOpen((prev) => {
+      if (typeof prev !== "object" || prev === null) {
+        return prev;
+      }
+      return {
+        ...prev,
+        bool: false,
+      };
+    });
   };
 
   const action = (
