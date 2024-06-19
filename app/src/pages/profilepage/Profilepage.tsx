@@ -7,7 +7,6 @@ interface FileDetails {
   name: string;
   size: number;
 }
-
 type Inputs = {
   firstName: string;
   lastName: string;
@@ -19,12 +18,13 @@ type IProps = {
   setOpen: Dispatch<SetStateAction<boolean | object>>;
 };
 export const Profilepage = ({ setOpen }: IProps) => {
-  const [fileDetails, setFileDetails] = useState<FileDetails>();
+  const [fileDetails, setFileDetails] = useState<FileDetails | null>();
 
   const {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
@@ -36,13 +36,15 @@ export const Profilepage = ({ setOpen }: IProps) => {
     if (data.image) {
       formData.append("image", data.image);
     }
-    fetch("http://localhost:8000/profile", {
+    fetch("https://acme-co-backendcn.vercel.app/profile", {
       method: "POST",
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
+        reset();
+        setFileDetails(null);
         setOpen((prev) => {
           if (typeof prev !== "object" || prev === null) {
             return prev;
