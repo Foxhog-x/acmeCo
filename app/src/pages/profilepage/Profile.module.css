@@ -28,6 +28,11 @@ flex-direction: column;
 gap: 8px;
 }
 
+ label{
+    font-weight: 500;
+    font-size: 18px;
+}
+
  
 @media (max-width: 768px) {
     .fields{
@@ -61,7 +66,7 @@ gap: 8px;
 .address{
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 8px;
 
 }
 
@@ -76,7 +81,7 @@ gap: 8px;
 input, textarea{
     border-radius: 10px;
     padding: 1.5rem;
-    border: none;
-    background-color: #d0d0d0;
+    border: 1px solid black;
+    
 }
 

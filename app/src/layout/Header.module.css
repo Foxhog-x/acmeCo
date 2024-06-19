@@ -8,6 +8,7 @@
 .logo {
     padding: 1rem;
     margin-left: 2rem;
+    
 }
 
 .navlinks {
@@ -15,6 +16,9 @@
     display: flex;
     gap: 5rem; 
     list-style-type: none;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .hamburger {
