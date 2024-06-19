@@ -78,9 +78,10 @@ gap: 8px;
     gap: 2rem;
     margin-top: 20px;
 }
-input[type="text"] {
-    font-size: 20px; /* Initial font size */
+input[type="text"], textarea {
+    font-size: 20px;
 }
+ 
 input, textarea{
     border-radius: 10px;
     padding: 1.5rem;
