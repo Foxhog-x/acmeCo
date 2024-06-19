@@ -129,7 +129,7 @@ export const Profilepage = ({ setOpen }: IProps) => {
           style={{
             display: "flex",
             flexDirection: "column",
-            gap: 35,
+            gap: 20,
             padding: 5,
           }}
           onSubmit={handleSubmit(onSubmit)}
