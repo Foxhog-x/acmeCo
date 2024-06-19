@@ -13,14 +13,7 @@ interface IProps {
   setOpen: React.Dispatch<React.SetStateAction<OpenState>>;
 }
 export default function SimpleSnackbar({ open, setOpen }: IProps) {
-  const handleClose = (
-    event: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
+  const handleClose = () => {
     setOpen((prev) => {
       if (typeof prev !== "object" || prev === null) {
         return prev;
