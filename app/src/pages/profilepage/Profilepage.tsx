@@ -204,6 +204,8 @@ export const Profilepage = ({ setOpen }: IProps) => {
                   padding: 12,
                   minWidth: 100,
                   borderRadius: "1rem",
+                  border: "1px solid black ",
+                  color: "black",
                 }}
               >
                 Reset
@@ -216,6 +218,8 @@ export const Profilepage = ({ setOpen }: IProps) => {
                   minWidth: 100,
                   borderRadius: "1rem",
                   backgroundColor: "#3ABEF9",
+
+                  color: "black",
                 }}
                 type="submit"
               >
