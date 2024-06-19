@@ -2,13 +2,18 @@ import * as React from "react";
 import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import { Dispatch, SetStateAction } from "react";
-import CloseIcon from "@mui/icons-material/Close";
-type Iprops = {
-  bool: boolean | object;
 
-  setOpen: Dispatch<SetStateAction<boolean>>;
-};
-export default function SimpleSnackbar({ open, setOpen }: Iprops) {
+import CloseIcon from "@mui/icons-material/Close";
+interface OpenState {
+  bool: boolean;
+  message: string;
+}
+
+interface IProps {
+  open: OpenState;
+  setOpen: React.Dispatch<React.SetStateAction<OpenState>>;
+}
+export default function SimpleSnackbar({ open, setOpen }: IProps) {
   const handleClose = (
     event: React.SyntheticEvent | Event,
     reason?: string

@@ -14,9 +14,14 @@ type Inputs = {
   address: string;
   image: File | null;
 };
-type IProps = {
-  setOpen: Dispatch<SetStateAction<boolean | object>>;
-};
+interface OpenState {
+  bool: boolean;
+  message: string;
+}
+
+interface IProps {
+  setOpen: React.Dispatch<React.SetStateAction<OpenState>>;
+}
 export const Profilepage = ({ setOpen }: IProps) => {
   const [fileDetails, setFileDetails] = useState<FileDetails | null>();
 

@@ -3,9 +3,12 @@ import "./App.css";
 import { Header } from "./layout/Header";
 import Profilepage from "./pages/profilepage";
 import SimpleSnackbar from "./components/SimpleSnackbar";
-
+interface OpenState {
+  bool: boolean;
+  message: string;
+}
 function App() {
-  const [open, setOpen] = useState<boolean | object>({
+  const [open, setOpen] = useState<OpenState>({
     bool: false,
     message: "",
   });
