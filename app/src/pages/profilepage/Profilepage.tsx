@@ -41,7 +41,7 @@ export const Profilepage = ({ setOpen }: IProps) => {
     if (data.image) {
       formData.append("image", data.image);
     }
-    fetch("https://acme-co-backendcn.vercel.app/profile", {
+    fetch("https://acme-co-backend.vercel.app/profile", {
       method: "POST",
       body: formData,
     })
