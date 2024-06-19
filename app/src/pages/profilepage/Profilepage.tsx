@@ -63,6 +63,18 @@ export const Profilepage = ({ setOpen }: IProps) => {
       })
       .catch((error) => {
         console.error("Error:", error);
+        setOpen((prev) => {
+          if (typeof prev !== "object" || prev === null) {
+            return prev;
+          }
+          return {
+            ...prev,
+            bool: true,
+            message: error,
+          };
+        });
+        reset();
+        setFileDetails(null);
       });
     console.log(data);
   };
