@@ -14,9 +14,7 @@ export const Header = () => {
       <header>
         <div className={styles.navbar_container}>
           <div className={styles.logo}>
-            <span style={{ marginLeft: "44px", fontWeight: 800, fontSize: 24 }}>
-              acmeCo
-            </span>
+            <span style={{ fontWeight: 800, fontSize: 24 }}>acmeCo</span>
           </div>
           <div className={`${styles.navlinks} ${isOpen ? styles.active : ""}`}>
             <li>Home</li>
@@ -29,11 +27,7 @@ export const Header = () => {
               src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
             />
           </div>
-          <div className={styles.hamburger} onClick={toggleMenu}>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <div className={styles.hamburger} onClick={toggleMenu}></div>
         </div>
       </header>
     </>

@@ -215,7 +215,7 @@ export const Profilepage = ({ setOpen }: IProps) => {
                   padding: 12,
                   minWidth: 100,
                   borderRadius: "1rem",
-                  backgroundColor: "#535bf2",
+                  backgroundColor: "#3ABEF9",
                 }}
                 type="submit"
               >
